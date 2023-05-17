@@ -2,6 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 protected_branches="develop main"
+current_branch=$(git symbolic-ref HEAD | sed -e 's,refs/heads/,,')
 
 for branch in $protected_branches; do
   if [[ "$current_branch" == "$branch" ]]; then
