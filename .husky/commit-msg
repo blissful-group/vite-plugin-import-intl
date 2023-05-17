@@ -1,4 +1,10 @@
-#!/usr/bin/env sh
+#!/bin/bash
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx --no -- commitlint --edit ${1}
+protected_branches="develop main"
+
+for branch in $protected_branches; do
+  if [[ "$current_branch" == "$branch" ]]; then
+    npx --no -- commitlint --edit ${1}
+  fi
+done
