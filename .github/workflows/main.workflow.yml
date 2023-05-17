@@ -1,0 +1,12 @@
+name: Main
+run-name: Updating '${{ github.ref_name }}' 🔄...
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Releasing '${{ github.event.repository.name }}' 📭...
+    uses: ./.github/workflows/release.workflow.yml
+    secrets: inherit

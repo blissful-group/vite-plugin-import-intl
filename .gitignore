@@ -1,0 +1,20 @@
+# OS
+.DS_STORE
+
+# Dependencies
+node_modules/
+
+# Envs
+.env
+.npmrc
+
+# Lock files
+yarn.lock
+package-lock.json
+
+# Builds
+dist/
+
+# Local
+.test
+coverage/
