@@ -1,5 +1,11 @@
 # vite-plugin-import-intl
 
+## 1.0.3
+
+### Patch Changes
+
+- 6b36d29: Fix husky issues
+
 ## 1.0.2
 
 ### Patch Changes
