@@ -29,7 +29,7 @@
     "lint:tsc": "tsc",
     "changeset": "changeset",
     "release": "pnpm build && pnpm publish",
-    "install:husky": "husky install"
+    "prepare": "husky install"
   },
   "dependencies": {
     "fast-glob": "^3.2.12"
