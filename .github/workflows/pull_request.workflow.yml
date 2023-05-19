@@ -21,7 +21,7 @@ jobs:
           cache: 'pnpm'
       -
         name: Installing dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --ignore-scripts
       -
         name: Linting library
         run: pnpm lint
