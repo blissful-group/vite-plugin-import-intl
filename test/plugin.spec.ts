@@ -36,3 +36,15 @@ it('should transform files according to the file system', () => {
   expect(transformed.code).toEqual(expect.stringContaining('package.json'))
   expect(transformed.code).toEqual(expect.stringContaining('}'))
 })
+
+it('should be able to read all json in a folder', () => {
+  const instance: any = plugin()
+  const matchedString = `const test = import.meta.intl(['vite-plugin-*/*']);`
+
+  const transformed = instance.transform(matchedString, process.cwd())
+
+  expect(transformed).toHaveProperty('code')
+  expect(transformed.code).toEqual(expect.stringContaining('const test = {'))
+  expect(transformed.code).toEqual(expect.stringContaining('package.json'))
+  expect(transformed.code).toEqual(expect.stringContaining('}'))
+})
