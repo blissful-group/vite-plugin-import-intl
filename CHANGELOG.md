@@ -1,5 +1,11 @@
 # vite-plugin-import-intl
 
+## 1.0.7
+
+### Patch Changes
+
+- c49705d: Update to main blob logo
+
 ## 1.0.6
 
 ### Patch Changes
