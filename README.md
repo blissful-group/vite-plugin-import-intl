@@ -1,4 +1,4 @@
-# ![vite-plugin-import-intl](logo.png)
+# ![vite-plugin-import-intl](https://github.com/blissful-group/vite-plugin-import-intl/blob/HEAD/logo.png?raw=true)
 
 A simple intl globbing import package for Vite
 
