@@ -1,4 +1,6 @@
+/* eslint-disable import/no-duplicates */
 import fg from 'fast-glob'
+import fs from 'fs'
 import path from 'path'
 import { v4 as uuid } from 'uuid'
 
@@ -17,7 +19,10 @@ export function transform({ code, match, id }: TransformConfig) {
     .split(',')
     .flatMap((parameter) => path.join(path.dirname(id), parameter.trim()))
 
-  const uniqueJSONPaths = fg.sync([...new Set(globs)]).filter((item) => item.endsWith('json'))
+  const uniqueJSONPaths = fg
+    .sync(globs)
+    .filter((file) => file.endsWith('json'))
+    .filter((file) => fs.statSync(file).size > 0)
 
   let importStatement = ''
   let variableStatement = `\n${variable}{`
