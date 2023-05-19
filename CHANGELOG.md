@@ -1,5 +1,11 @@
 # vite-plugin-import-intl
 
+## 1.0.4
+
+### Patch Changes
+
+- e47f1cb: Added bugfix for conflicting variable names
+
 ## 1.0.3
 
 ### Patch Changes
