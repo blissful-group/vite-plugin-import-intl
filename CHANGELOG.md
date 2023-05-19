@@ -1,5 +1,11 @@
 # vite-plugin-import-intl
 
+## 1.0.6
+
+### Patch Changes
+
+- d3be8d0: Add documentation tags and logo
+
 ## 1.0.5
 
 ### Patch Changes
