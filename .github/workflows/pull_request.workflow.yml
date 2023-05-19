@@ -1,0 +1,30 @@
+name: Pull request
+run-name: Testing '${{ github.event.pull_request.title || github.ref_name }}' 🧪...
+on: [pull_request, workflow_dispatch]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout code
+        uses: actions/checkout@v3
+      -
+        name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      -
+        name: Switch to node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+      -
+        name: Installing dependencies
+        run: pnpm install --frozen-lockfile
+      -
+        name: Linting library
+        run: pnpm lint
+      -
+        name: Testing library
+        run: pnpm test
