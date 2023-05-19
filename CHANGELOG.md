@@ -1,5 +1,14 @@
 # vite-plugin-import-intl
 
+## 1.0.8
+
+### Patch Changes
+
+- 20ab52d: Add test for only json files
+- 3f51478: Fix for wrong badges
+- 20ab52d: Add fix for empty json files
+- 20ab52d: Add support for multiple import.meta.intl's per file
+
 ## 1.0.7
 
 ### Patch Changes
