@@ -1,5 +1,6 @@
 import fg from 'fast-glob'
 import path from 'path'
+import { v4 as uuid } from 'uuid'
 
 type TransformConfig = { code: string; match: string; id: string }
 
@@ -23,13 +24,10 @@ export function transform({ code, match, id }: TransformConfig) {
 
   uniqueJSONPaths.forEach((uniqueJSONPath) => {
     const name = path.basename(uniqueJSONPath, '.json')
-    const camelName = name
-      .replace(/[- ]/, '')
-      .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => (index === 0 ? word.toLowerCase() : word.toUpperCase()))
-      .replace(/\s+/g, '')
+    const safeName = `_${uuid().replace(/-/g, '')}`
 
-    importStatement += `\nimport ${camelName} from '${uniqueJSONPath}';`
-    variableStatement += `\n  '${name}': ${camelName},`
+    importStatement += `\nimport ${safeName} from '${uniqueJSONPath}';`
+    variableStatement += `\n  '${name}': ${safeName},`
   })
 
   variableStatement += '\n}'
