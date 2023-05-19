@@ -6,14 +6,14 @@ A simple intl globbing import package for Vite
 [![Code Coverage][]](https://codecov.io/gh/blissful-group/vite-plugin-import-intl/branch/main)
 [![Issues Open][]](https://github.com/blissful-group/vite-plugin-import-intl/issues)
 [![Licenses][]](./LICENSE)
-[![Bundle Size][]](https://bundlephobia.com/package/utall)
-[![NPM][]](https://www.npmjs.com/package/utall)
+[![Bundle Size][]](https://bundlephobia.com/package/vite-plugin-import-intl)
+[![NPM][]](https://www.npmjs.com/package/vite-plugin-import-intl)
 
 [Build Status]: https://github.com/blissful-group/vite-plugin-import-intl/actions/workflows/main.workflow.yml/badge.svg
 [Code Coverage]: https://img.shields.io/codecov/c/github/blissful-group/vite-plugin-import-intl
 [Issues Open]: https://img.shields.io/github/issues/blissful-group/vite-plugin-import-intl
 [Licenses]: https://img.shields.io/github/license/blissful-group/vite-plugin-import-intl
-[Bundle Size]: https://img.shields.io/bundlephobia/min/utall
+[Bundle Size]: https://img.shields.io/bundlephobia/min/vite-plugin-import-intl
 [NPM]: https://img.shields.io/npm/v/vite-plugin-import-intl
 
 ## Getting started
