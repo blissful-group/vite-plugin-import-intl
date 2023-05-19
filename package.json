@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-import-intl",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A simple intl globbing import package for Vite",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
