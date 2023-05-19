@@ -20,11 +20,11 @@ jobs:
           node-version: 18
           cache: 'pnpm'
       -
-        name: Install dependencies
-        run: pnpm install --frozen-lockfile --ignore-scripts
-      -
         name: Check changeset 🎞️...
         uses: ./.github/actions/changeset
+      -
+        name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
       -
         name: Lint library 🔬...
         run: pnpm lint
