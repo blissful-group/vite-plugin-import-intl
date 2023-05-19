@@ -1,5 +1,5 @@
-# vite-plugin-import-glob
-Simple globbing import package for Vite
+# vite-plugin-import-intl
+A simple intl globbing import package for Vite
 
 ## Getting started
 Install package

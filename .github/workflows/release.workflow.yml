@@ -17,7 +17,7 @@ jobs:
         name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: latest
       -
         name: Switch to node 18
         uses: actions/setup-node@v3
@@ -25,13 +25,13 @@ jobs:
           node-version: 18
           cache: 'pnpm'
       -
-        name: Installing dependencies
+        name: Install dependencies
         run: pnpm install --frozen-lockfile
       -
-        name: Linting library
+        name: Lint library 🔬...
         run: pnpm lint
       -
-        name: Testing library
+        name: Test library 🌡️...
         run: pnpm test
       -
         name: Create Release Pull Request or Publish
@@ -43,3 +43,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      -
+        name: Coverage
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        uses: codecov/codecov-action@v3
+        with:
+          directory: ./coverage
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true

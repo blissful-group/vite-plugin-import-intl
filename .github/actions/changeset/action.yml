@@ -1,0 +1,25 @@
+name: Changeset
+description: Running changeset 📫...
+runs:
+  using: "composite"
+  steps:
+    -
+      name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    -
+      name: Check if pull request has changeset folder
+      id: diff-changeset
+      uses: tj-actions/changed-files@v35
+      with:
+        files: ./.changeset
+    -
+      name: Check if pull request has failed ❌...
+      if: steps.diff-changeset.outputs.any_changed != 'true'
+      run: |
+        branch_current=origin/${{ github.head_ref }}
+        branch_target=origin/${{ github.base_ref }}
+        echo "Missing changelog entry when comparing $branch_current to $branch_target..."
+        exit 1
+      shell: bash
