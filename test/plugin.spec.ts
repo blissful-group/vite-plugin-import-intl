@@ -48,3 +48,15 @@ it('should be able to read all json in a folder', () => {
   expect(transformed.code).toEqual(expect.stringContaining('package.json'))
   expect(transformed.code).toEqual(expect.stringContaining('}'))
 })
+
+it('should not have conflicting import keys', () => {
+  const instance: any = plugin()
+  const matchedString = `const package = import.meta.intl(['vite-plugin-*/package.json']);`
+
+  const transformed = instance.transform(matchedString, process.cwd())
+
+  expect(transformed).toHaveProperty('code')
+  expect(transformed.code).not.toEqual(expect.stringContaining('import package'))
+  expect(transformed.code).toEqual(expect.stringMatching(/import _.*\/package\.json';/))
+  expect(transformed.code).toEqual(expect.stringContaining('package.json'))
+})
