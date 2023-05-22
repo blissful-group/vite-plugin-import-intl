@@ -2,7 +2,7 @@
 
 A simple intl globbing import package for Vite
 
-[![Build Status][]](https://github.com/blissful-group/vite-plugin-import-intl/acs/workflows/main.workflow.yml)
+[![Build Status][]](https://github.com/blissful-group/vite-plugin-import-intl/actions/workflows/main.workflow.yml)
 [![Code Coverage][]](https://codecov.io/gh/blissful-group/vite-plugin-import-intl/branch/main)
 [![Issues Open][]](https://github.com/blissful-group/vite-plugin-import-intl/issues)
 [![Licenses][]](./LICENSE)
