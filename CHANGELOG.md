@@ -1,5 +1,11 @@
 # vite-plugin-import-intl
 
+## 1.0.9
+
+### Patch Changes
+
+- 1f2c343: Cleanup code and clear up naming
+
 ## 1.0.8
 
 ### Patch Changes
