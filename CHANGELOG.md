@@ -1,5 +1,11 @@
 # vite-plugin-import-intl
 
+## 1.0.10
+
+### Patch Changes
+
+- fd41ec1: Update release script
+
 ## 1.0.9
 
 ### Patch Changes
