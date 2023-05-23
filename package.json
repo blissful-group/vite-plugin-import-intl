@@ -28,7 +28,7 @@
     "lint:eslint": "eslint .",
     "lint:tsc": "tsc",
     "changeset": "changeset",
-    "release": "pnpm build && pnpm publish",
+    "release": "pnpm build && pnpm publish && changeset tag",
     "prepare": "husky install"
   },
   "dependencies": {
