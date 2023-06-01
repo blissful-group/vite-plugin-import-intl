@@ -1,5 +1,11 @@
 # vite-plugin-import-intl
 
+## 2.0.0
+
+### Major Changes
+
+- ca12934: Moved to eager based loading for localization support
+
 ## 1.0.10
 
 ### Patch Changes
