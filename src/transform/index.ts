@@ -1,11 +1,11 @@
 import fg from 'fast-glob'
 import fs from 'fs'
 import path from 'path'
-import { v4 as uuid } from 'uuid'
+import { compileString } from '@internationalized/string-compiler'
 
-type TransformConfig = { code: string; match: string; id: string }
+type TransformConfig = { match: string; id: string }
 
-export function transform({ code, match, id }: TransformConfig) {
+export async function transform({ match, id }: TransformConfig) {
   const [parameters] = match.match(/\((.*?)\)/gm) ?? []
   const [variable] = match.match(/(.*)= /gm) ?? []
 
@@ -23,18 +23,15 @@ export function transform({ code, match, id }: TransformConfig) {
     .filter((file) => file.endsWith('json'))
     .filter((file) => fs.statSync(file).size > 0)
 
-  let importStatement = ''
-  let variableStatement = `\n${variable}{`
+  const filesPromised = filePaths.map((filePath) => fs.promises.readFile(filePath, { encoding: 'utf8' }))
+  const contentsRaw = await Promise.all(filesPromised)
+  const contentsParsed = contentsRaw.map((content) => JSON.parse(content))
 
-  filePaths.forEach((filePath) => {
-    const name = path.basename(filePath, '.json')
-    const safeName = `_${uuid().replace(/-/g, '')}`
-
-    importStatement += `\nimport ${safeName} from '${filePath}';`
-    variableStatement += `\n  '${name}': ${safeName},`
-  })
-
-  variableStatement += '\n}'
-
-  return code.replace(match, `${importStatement}${variableStatement}`)
+  return `${variable}{${filePaths.map(
+    (filePath, index) =>
+      `'${path.basename(filePath, '.json')}': {${Object.entries(contentsParsed[index]).reduce(
+        (result, [key, value]) => `${result}${key}: ${typeof value === 'string' ? compileString(value) : value},`,
+        '',
+      )}}`,
+  )}}`
 }
